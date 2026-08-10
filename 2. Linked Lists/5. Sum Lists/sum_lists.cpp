@@ -86,6 +86,21 @@ class Sum {
 
     LinkedList sumListsForward(Node* h1, Node* h2) {
         LinkedList l;
+        if (h1 == NULL) {
+            while (h2 != NULL) {
+                l.insertAtTail(h2->data);
+                h2 = h2->next;
+            }
+            return l;
+        }
+
+        if (h2 == NULL) {
+            while (h1 != NULL) {
+                l.insertAtTail(h1->data);
+                h1 = h1->next;
+            }
+            return l;
+        }
 
         int length1 = 0;
         int length2 = 0;
@@ -136,23 +151,17 @@ class Sum {
                     h1 = h1->next;
                     h2 = h2->next;
                 }
-                cout << "a" << endl;
             } else if (h1->next != NULL) { // should only be used if list 2 is empty
-                cout << "b" << endl;
                 l.insertAtTail(h1->data);
                 h1 = h1->next;
-                cout << "f" << endl;
             } else { // should only be used if list 1 is empty
-                cout << "c" << endl;
                 l.insertAtTail(h2->data);
                 h2 = h2->next;
             }
         }
-        cout << "d" << endl;
         if (length1 == length2) {
             l.insertAtTail((h1->data + h2->data) % 10);
         }
-        cout << "e" << endl;
 
         return l;
     }
@@ -188,7 +197,7 @@ int main() {
     res = s.sumListsReverse(l1.head, l5.head);
     res.print(); // 7 1 6
     res = s.sumListsForward(l4.head, l5.head);
-    res.print(); // 2 9 5
+    res.print(); // 2 9 5 1
 
     return 0;
 }
