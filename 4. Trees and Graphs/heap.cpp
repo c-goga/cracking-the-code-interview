@@ -3,7 +3,7 @@
 #include <climits>
 using namespace std;
 
-// my bad attempt lol
+// my bad attempt to implement it using nodes lol
 
 // class MinHeap {
 //     private:
